@@ -1,0 +1,12 @@
+server:
+  ingress:
+    ## If true, Prometheus server Ingress will be created
+    ##
+    enabled: true
+    ingressClassName: nginx
+
+    ## Prometheus server Ingress hostnames
+    ## Must be provided if Ingress is enabled
+    ##
+    hosts:
+      - prometheus.coffee-bean.xyz

@@ -1,0 +1,11 @@
+ingress:
+    ## If true, grafana server Ingress will be created
+    ##
+    enabled: true
+    ingressClassName: nginx
+
+    ## grafana server Ingress hostnames
+    ## Must be provided if Ingress is enabled
+    ##
+    hosts:
+      - grafana.coffee-bean.xyz
