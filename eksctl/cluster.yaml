@@ -1,0 +1,73 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: demo-cluster
+  region: eu-north-1
+
+addons:
+- name: ebs
+
+nodeGroups:
+  - name: ng-1
+    instanceType: t3.medium
+    desiredCapacity: 3
+    volumeSize: 50
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        certManager: true
+        ebs: true
+    ssh:
+      allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+      publicKeyPath: /Users/yogeshraj/.ssh/id_rsa.pub
+  - name: ng-2
+    instanceType: t3.medium
+    desiredCapacity: 3
+    volumeSize: 50
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        certManager: true
+        ebs: true
+    ssh:
+      publicKeyPath: /Users/yogeshraj/.ssh/id_rsa.pub
+      allow: true
+
+managedNodeGroups:
+  - name: ng-1-workers
+    instanceType: t3.medium
+    desiredCapacity: 2
+    volumeSize: 50
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        certManager: true
+        ebs: true
+    ssh:
+      publicKeyPath: /Users/yogeshraj/.ssh/id_rsa.pub
+      allow: true
+  - name: ng-2-workers
+    instanceType: t3.medium
+    desiredCapacity: 2
+    volumeSize: 50
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        certManager: true
+        ebs: true
+    ssh:
+      publicKeyPath: /Users/yogeshraj/.ssh/id_rsa.pub
+      allow: true
+  - name: ng-3-workers
+    instanceType: t3.medium
+    desiredCapacity: 2
+    volumeSize: 50
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        certManager: true
+        ebs: true
+    ssh:
+      publicKeyPath: /Users/yogeshraj/.ssh/id_rsa.pub
+      allow: true

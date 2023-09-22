@@ -1,0 +1,5 @@
+controller:
+  service:
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: "alb" # Use "alb" for Application Load Balancer
+    type: LoadBalancer # Use "NodePort" or "ClusterIP" for NodePort or ClusterIP service type

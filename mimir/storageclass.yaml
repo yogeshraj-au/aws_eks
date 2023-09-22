@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mimir
+  namespace: mimir
+provisioner: ebs.csi.aws.com  # Amazon EBS CSI driver provisioner
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  type: gp2  # EBS volume type (e.g., gp2, io1, etc.)
+  fsType: ext4  # File system type (e.g., ext4, xfs)
